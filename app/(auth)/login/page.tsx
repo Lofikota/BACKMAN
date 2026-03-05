@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://backman-two.vercel.app'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://backman-saas-9doz00a97-445s-projects.vercel.app'
 
 // Google公式ロゴSVG
 function GoogleIcon() {
