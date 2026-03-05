@@ -1,18 +1,17 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import ChatClient from './ChatClient'
 
-export default async function RootPage() {
+export default async function ChatPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-
   if (!user) redirect('/login')
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('role, name')
     .eq('id', user.id)
     .single()
 
-  if (profile?.role === 'member') redirect('/member')
-  redirect('/admin')
+  return <ChatClient role={profile?.role ?? 'member'} />
 }
